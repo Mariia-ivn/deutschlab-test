@@ -1,0 +1,287 @@
+:root {
+  --primary: #2f6768;
+  --primary-dark: #245354;
+  --primary-soft: #e8f1f1;
+  --background: #f5f8f7;
+  --card: #ffffff;
+  --text: #243536;
+  --muted: #687879;
+  --border: #d8e3e1;
+  --danger: #b42318;
+  --success: #157347;
+  --shadow: 0 20px 55px rgba(38, 80, 77, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, Arial, sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%, #dfeeee 0, transparent 32%),
+    linear-gradient(145deg, #f9fbfa, var(--background));
+  color: var(--text);
+}
+
+button,
+input,
+a {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+}
+
+.card {
+  width: min(760px, 100%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: clamp(24px, 5vw, 42px);
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--primary-soft);
+  font-size: 22px;
+}
+
+h1,
+h2 {
+  margin: 0 0 14px;
+  line-height: 1.18;
+}
+
+h1 {
+  font-size: clamp(34px, 7vw, 54px);
+}
+
+h2 {
+  font-size: clamp(25px, 5vw, 36px);
+}
+
+p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+  display: grid;
+  gap: 11px;
+}
+
+.features li {
+  padding: 13px 15px;
+  border-radius: 13px;
+  background: var(--primary-soft);
+  font-weight: 650;
+}
+
+.form-grid {
+  display: grid;
+  gap: 17px;
+  margin-top: 24px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-weight: 750;
+}
+
+input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  outline: none;
+  background: white;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(47, 103, 104, .12);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+button,
+.button-link {
+  border: 0;
+  border-radius: 13px;
+  padding: 14px 22px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform .15s ease, background .15s ease;
+}
+
+button:hover,
+.button-link:hover {
+  transform: translateY(-1px);
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.primary:hover {
+  background: var(--primary-dark);
+}
+
+.secondary {
+  background: #edf2f1;
+  color: var(--text);
+}
+
+.progress-box {
+  margin-bottom: 28px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 9px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.progress {
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #edf2f1;
+}
+
+.progress-value {
+  height: 100%;
+  background: var(--primary);
+  transition: width .25s ease;
+}
+
+.question-number {
+  margin-bottom: 9px;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.options {
+  display: grid;
+  gap: 13px;
+  margin-top: 24px;
+}
+
+.option {
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  background: white;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.option:hover {
+  border-color: var(--primary);
+  background: #fbfdfd;
+}
+
+.option.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.error {
+  margin-top: 15px;
+  color: var(--danger);
+  font-weight: 750;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  background: #ecfdf3;
+  color: var(--success);
+  font-weight: 850;
+}
+
+.score-list {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.score-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 15px;
+  border-radius: 13px;
+  background: #f3f6f5;
+}
+
+.result-level {
+  color: var(--primary);
+}
+
+.small {
+  font-size: 14px;
+  margin-top: 22px;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 12px;
+  }
+
+  .card {
+    border-radius: 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  button,
+  .button-link {
+    width: 100%;
+  }
+}
