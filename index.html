@@ -18,582 +18,92 @@
       --danger: #b42318;
       --shadow: 0 18px 50px rgba(38, 80, 77, 0.14);
     }
-
     * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, #dfeeee 0, transparent 32%),
-        radial-gradient(circle at bottom right, #eef6f3 0, transparent 30%),
-        var(--bg);
-      color: var(--text);
-    }
-
-    button, input { font: inherit; }
-
-    .container {
-      width: min(760px, calc(100% - 32px));
-      margin: 44px auto;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(216, 227, 225, 0.95);
-      border-radius: 26px;
-      padding: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .hidden { display: none !important; }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 13px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--primary);
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    h1 {
-      font-size: clamp(32px, 6vw, 50px);
-      line-height: 1.08;
-      margin: 20px 0 14px;
-    }
-
-    h2 {
-      font-size: clamp(24px, 4vw, 34px);
-      line-height: 1.25;
-    }
-
-    p {
-      line-height: 1.65;
-      color: var(--muted);
-    }
-
-    .intro {
-      font-size: 18px;
-      margin-bottom: 28px;
-    }
-
-    label {
-      display: block;
-      margin-top: 18px;
-      font-weight: 700;
-    }
-
-    input {
-      width: 100%;
-      margin-top: 8px;
-      padding: 15px 16px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      outline: none;
-      background: white;
-    }
-
-    input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(47, 103, 104, 0.12);
-    }
-
-    .primary-button {
-      width: 100%;
-      margin-top: 24px;
-      border: 0;
-      border-radius: 14px;
-      padding: 15px 20px;
-      background: var(--primary);
-      color: white;
-      font-weight: 800;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .primary-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-    }
-
-    .primary-button:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .question-count {
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .progress {
-      height: 10px;
-      border-radius: 999px;
-      overflow: hidden;
-      background: #edf2f1;
-      margin-bottom: 30px;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, var(--primary), #74a7a0);
-      transition: width 0.3s ease;
-    }
-
-    .answers {
-      display: grid;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .answer {
-      width: 100%;
-      text-align: left;
-      padding: 16px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: white;
-      cursor: pointer;
-      transition: 0.18s ease;
-    }
-
-    .answer:hover {
-      border-color: var(--primary);
-      background: #fbfdfd;
-    }
-
-    .answer.selected {
-      border-color: var(--primary);
-      background: var(--soft);
-      box-shadow: 0 0 0 3px rgba(47, 103, 104, 0.10);
-    }
-
-    .result-header { text-align: center; }
-
-    .result-card,
-    .course-card,
-    .level-description,
-    .contact-message {
-      margin-top: 18px;
-      padding: 22px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: var(--soft);
-    }
-
-    .result-card,
-    .course-card { text-align: center; }
-
-    .result-label {
-      margin: 4px 0;
-      color: #4b5f5f;
-      font-weight: 800;
-    }
-
-    .result-level {
-      margin: 16px 0;
-      font-size: clamp(52px, 12vw, 78px);
-      line-height: 1;
-      color: var(--primary);
-    }
-
-    .course-name {
-      margin: 12px 0 0;
-      font-size: 27px;
-    }
-
-    .level-description p,
-    .contact-message p { margin: 10px 0; }
-
-    .success-note {
-      color: var(--success);
-      font-weight: 800;
-    }
-
-    .send-status {
-      margin-top: 16px;
-      font-size: 14px;
-      text-align: center;
-    }
-
-    .send-status.error { color: var(--danger); }
-
-    .privacy-note {
-      margin-top: 18px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    @media (max-width: 600px) {
-      .container { margin: 18px auto; }
-      .card { padding: 23px; border-radius: 20px; }
-      .top-row { align-items: flex-start; }
-    }
+    body { margin:0; min-height:100vh; font-family:Inter,Arial,sans-serif; background:radial-gradient(circle at top left,#dfeeee 0,transparent 32%),radial-gradient(circle at bottom right,#eef6f3 0,transparent 30%),var(--bg); color:var(--text); }
+    button,input{font:inherit}.container{width:min(760px,calc(100% - 32px));margin:44px auto}.card{background:var(--card);border:1px solid rgba(216,227,225,.95);border-radius:26px;padding:34px;box-shadow:var(--shadow)}.hidden{display:none!important}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;background:var(--soft);color:var(--primary);font-weight:800;font-size:14px}h1{font-size:clamp(32px,6vw,50px);line-height:1.08;margin:20px 0 14px}h2{font-size:clamp(24px,4vw,34px);line-height:1.25}p{line-height:1.65;color:var(--muted)}.intro{font-size:18px;margin-bottom:28px}label{display:block;margin-top:18px;font-weight:700}input{width:100%;margin-top:8px;padding:15px 16px;border:1px solid var(--border);border-radius:14px;outline:none;background:white}input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(47,103,104,.12)}.primary-button{width:100%;margin-top:24px;border:0;border-radius:14px;padding:15px 20px;background:var(--primary);color:white;font-weight:800;cursor:pointer;transition:.2s ease}.primary-button:hover{background:var(--primary-dark);transform:translateY(-1px)}.primary-button:disabled{opacity:.55;cursor:not-allowed;transform:none}.top-row{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}.question-count{color:var(--muted);font-weight:700}.progress{height:10px;border-radius:999px;overflow:hidden;background:#edf2f1;margin-bottom:30px}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#74a7a0);transition:width .3s ease}.answers{display:grid;gap:12px;margin-top:24px}.answer{width:100%;text-align:left;padding:16px;border-radius:14px;border:1px solid var(--border);background:white;cursor:pointer;transition:.18s ease}.answer:hover{border-color:var(--primary);background:#fbfdfd}.answer.selected{border-color:var(--primary);background:var(--soft);box-shadow:0 0 0 3px rgba(47,103,104,.10)}.result-header{text-align:center}.result-card,.course-card,.level-description,.contact-message{margin-top:18px;padding:22px;border-radius:18px;border:1px solid var(--border);background:var(--soft)}.result-card,.course-card{text-align:center}.result-label{margin:4px 0;color:#4b5f5f;font-weight:800}.result-level{margin:16px 0;font-size:clamp(52px,12vw,78px);line-height:1;color:var(--primary)}.course-name{margin:12px 0 0;font-size:27px}.level-description p,.contact-message p{margin:10px 0}.success-note{color:var(--success);font-weight:800}.send-status{margin-top:16px;font-size:14px;text-align:center}.send-status.error{color:var(--danger)}.privacy-note{margin-top:18px;font-size:13px;color:var(--muted)}@media(max-width:600px){.container{margin:18px auto}.card{padding:23px;border-radius:20px}.top-row{align-items:flex-start}}
   </style>
 </head>
-
 <body>
   <main class="container">
     <section id="start-screen" class="card">
       <span class="badge">🇩🇪 DeutschLab</span>
       <h1>Deutsch-Einstufungstest</h1>
-      <p class="intro">
-        Beantworte die Fragen und erfahre dein aktuelles Deutschniveau.
-        <br>
-        Дайте відповіді на запитання та дізнайтеся свій поточний рівень німецької.
-      </p>
-
+      <p class="intro">Beantworte die Fragen und erfahre dein aktuelles Deutschniveau.<br>Дайте відповіді на запитання та дізнайтеся свій поточний рівень німецької.</p>
       <form id="student-form">
-        <label for="student-name">
-          Vor- und Nachname / Ім’я та прізвище
-        </label>
+        <label for="student-name">Vor- und Nachname / Ім’я та прізвище</label>
         <input id="student-name" type="text" autocomplete="name" required placeholder="Anna Müller">
-
         <label for="student-email">E-Mail</label>
         <input id="student-email" type="email" autocomplete="email" required placeholder="anna@email.com">
-
-        <button class="primary-button" type="submit">
-          Test starten / Розпочати тест
-        </button>
-
-        <p class="privacy-note">
-          Mit dem Absenden stimmst du zu, dass DeutschLab dich bezüglich deines Testergebnisses kontaktiert.
-          Натискаючи кнопку, ви погоджуєтеся, що DeutschLab зв’яжеться з вами щодо результату тесту.
-        </p>
+        <button class="primary-button" type="submit">Test starten / Розпочати тест</button>
+        <p class="privacy-note">Mit dem Absenden stimmst du zu, dass DeutschLab dich bezüglich deines Testergebnisses kontaktiert. Натискаючи кнопку, ви погоджуєтеся, що DeutschLab зв’яжеться з вами щодо результату тесту.</p>
       </form>
     </section>
-
     <section id="test-screen" class="card hidden">
-      <div class="top-row">
-        <span id="level-label" class="badge"></span>
-        <span id="question-count" class="question-count"></span>
-      </div>
-
-      <div class="progress">
-        <div id="progress-bar" class="progress-bar"></div>
-      </div>
-
-      <h2 id="question-text"></h2>
-      <div id="answers" class="answers"></div>
-
-      <button id="next-button" class="primary-button" type="button" disabled>
-        Weiter / Далі
-      </button>
+      <div class="top-row"><span id="level-label" class="badge"></span><span id="question-count" class="question-count"></span></div>
+      <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+      <h2 id="question-text"></h2><div id="answers" class="answers"></div>
+      <button id="next-button" class="primary-button" type="button" disabled>Weiter / Далі</button>
     </section>
-
     <section id="result-screen" class="card hidden">
-      <div class="result-header">
-        <span class="badge">DeutschLab</span>
-        <h1>Vielen Dank! / Дякуємо! 🎉</h1>
-        <p class="success-note">
-          Test erfolgreich abgeschlossen / Тест успішно завершено
-        </p>
-      </div>
-
-      <div class="result-card">
-        <p class="result-label">🇩🇪 Dein aktuelles Deutschniveau</p>
-        <h2 id="result-level" class="result-level">A1.1</h2>
-        <p class="result-label">🇺🇦 Ваш поточний рівень німецької</p>
-      </div>
-
-      <div class="course-card">
-        <p class="result-label">📚 Empfohlener Kurs / Рекомендований курс</p>
-        <h3 id="recommended-course" class="course-name"></h3>
-      </div>
-
-      <div class="level-description">
-        <p id="level-description-de"></p>
-        <p id="level-description-ua"></p>
-      </div>
-
-      <div class="contact-message">
-        <p>
-          🇩🇪 Unser Team wird dein Ergebnis zusätzlich prüfen und sich
-          innerhalb von <strong>24 Stunden</strong> mit dir in Verbindung setzen,
-          um gemeinsam den passenden Kurs für dich auszuwählen.
-        </p>
-
-        <p>
-          🇺🇦 Наша команда додатково перевірить ваш результат і
-          <strong>протягом 24 годин</strong> зв’яжеться з вами, щоб допомогти
-          обрати курс, який найкраще відповідає вашому рівню.
-        </p>
-
-        <p>
-          📧 Bitte überprüfe auch deinen Spam-Ordner.<br>
-          Якщо протягом 24 годин ви не отримали повідомлення, будь ласка,
-          перевірте папку «Спам».
-        </p>
-      </div>
-
+      <div class="result-header"><span class="badge">DeutschLab</span><h1>Vielen Dank! / Дякуємо! 🎉</h1><p class="success-note">Test erfolgreich abgeschlossen / Тест успішно завершено</p></div>
+      <div class="result-card"><p class="result-label">🇩🇪 Dein aktuelles Deutschniveau</p><h2 id="result-level" class="result-level">A1.1</h2><p class="result-label">🇺🇦 Ваш поточний рівень німецької</p></div>
+      <div class="course-card"><p class="result-label">📚 Empfohlener Kurs / Рекомендований курс</p><h3 id="recommended-course" class="course-name"></h3></div>
+      <div class="level-description"><p id="level-description-de"></p><p id="level-description-ua"></p></div>
+      <div class="contact-message"><p>🇩🇪 Unser Team wird dein Ergebnis zusätzlich prüfen und sich innerhalb von <strong>24 Stunden</strong> mit dir in Verbindung setzen, um gemeinsam den passenden Kurs für dich auszuwählen.</p><p>🇺🇦 Наша команда додатково перевірить ваш результат і <strong>протягом 24 годин</strong> зв’яжеться з вами, щоб допомогти обрати курс, який найкраще відповідає вашому рівню.</p><p>📧 Bitte überprüfe auch deinen Spam-Ordner.<br>Якщо протягом 24 годин ви не отримали повідомлення, будь ласка, перевірте папку «Спам».</p></div>
       <p id="send-status" class="send-status"></p>
     </section>
   </main>
-
   <script>
     const PASS_SCORE = 8;
-
-    const APPS_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbylTW8syErB012PNMyga6R1vWk9JWDy2KJEh-5TRCNLeLPemtGENRlVJEcFyf5JHHCsog/exec";
-
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbylTW8syErB012PNMyga6R1vWk9JWDy2KJEh-5TRCNLeLPemtGENRlVJEcFyf5JHHCsog/exec";
     const questionBlocks = [
-      {
-        level: "A1.1",
-        questions: [
-          { text: "Wie ___ du?", answers: ["heiße", "heißt", "heißen"], correct: 1 },
-          { text: "Ich ___ Maria.", answers: ["bin", "bist", "ist"], correct: 0 },
-          { text: "Woher kommst du? – Ich komme ___ der Ukraine.", answers: ["aus", "in", "bei"], correct: 0 },
-          { text: "Das ist ___ Bruder.", answers: ["mein", "meine", "meinen"], correct: 0 },
-          { text: "Wir ___ Deutsch.", answers: ["lernt", "lernen", "lerne"], correct: 1 },
-          { text: "Wie alt bist du? – Ich bin 23 ___.", answers: ["Jahre alt", "Jahres", "Jahr"], correct: 0 },
-          { text: "___ du Kaffee?", answers: ["Trinkst", "Trinkt", "Trinken"], correct: 0 },
-          { text: "Das sind Anna und Max. ___ wohnen in Berlin.", answers: ["Sie", "Ihr", "Wir"], correct: 0 },
-          { text: "Ich habe ___ Auto.", answers: ["kein", "keine", "keinen"], correct: 0 },
-          { text: "Heute ist Montag. Morgen ist ___.", answers: ["Sonntag", "Dienstag", "Mittwoch"], correct: 1 }
-        ]
-      },
-      {
-        level: "A1.2",
-        questions: [
-          { text: "Ich stehe jeden Tag um 7 Uhr ___.", answers: ["an", "auf", "ein"], correct: 1 },
-          { text: "Kannst du mir bitte ___?", answers: ["helfen", "hilfst", "geholfen"], correct: 0 },
-          { text: "Am Wochenende ___ ich meine Freunde besucht.", answers: ["bin", "habe", "werde"], correct: 1 },
-          { text: "Ich fahre ___ dem Bus zur Arbeit.", answers: ["mit", "bei", "für"], correct: 0 },
-          { text: "Wir treffen uns ___ Freitag.", answers: ["im", "am", "um"], correct: 1 },
-          { text: "Das Geschenk ist ___ meine Mutter.", answers: ["von", "für", "aus"], correct: 1 },
-          { text: "Ich muss heute länger ___.", answers: ["arbeite", "arbeiten", "gearbeitet"], correct: 1 },
-          { text: "Der Supermarkt ist ___ der Bank.", answers: ["neben", "durch", "ohne"], correct: 0 },
-          { text: "Gestern ___ ich ins Kino gegangen. ", answers: ["habe", "bin", "will"], correct: 1 },
-          { text: "Meine Wohnung ist größer ___ deine.", answers: ["wie", "als", "von"], correct: 1 }
-        ]
-      }
+      {level:"A1.1",questions:[
+        {text:"Wie ___ du?",answers:["heiße","heißt","heißen"],correct:1},{text:"Ich ___ Maria.",answers:["bin","bist","ist"],correct:0},{text:"Woher kommst du? – Ich komme ___ der Ukraine.",answers:["aus","in","bei"],correct:0},{text:"Das ist ___ Bruder.",answers:["mein","meine","meinen"],correct:0},{text:"Wir ___ Deutsch.",answers:["lernt","lernen","lerne"],correct:1},{text:"Wie alt bist du? – Ich bin 23 ___.",answers:["Jahre","Jahren","Jahr"],correct:0},{text:"___ du Kaffee?",answers:["Trinkst","Trinkt","Trinken"],correct:0},{text:"Das sind Anna und Max. ___ wohnen in Berlin.",answers:["Sie","Ihr","Wir"],correct:0},{text:"Ich habe ___ Auto.",answers:["kein","keine","keinen"],correct:0},{text:"Heute ist Montag. Morgen ist ___.",answers:["Sonntag","Dienstag","Mittwoch"],correct:1}
+      ]},
+      {level:"A1.2",questions:[
+        {text:"Ich stehe jeden Tag um 7 Uhr ___.",answers:["an","auf","ein"],correct:1},{text:"Kannst du mir bitte ___?",answers:["helfen","hilfst","geholfen"],correct:0},{text:"Am Wochenende ___ ich meine Freunde besucht.",answers:["bin","habe","werde"],correct:1},{text:"Ich fahre ___ dem Bus zur Arbeit.",answers:["mit","bei","für"],correct:0},{text:"Wir treffen uns ___ Freitag.",answers:["im","am","um"],correct:1},{text:"Das Geschenk ist ___ meine Mutter.",answers:["von","für","aus"],correct:1},{text:"Ich muss heute länger ___.",answers:["arbeite","arbeiten","gearbeitet"],correct:1},{text:"Der Supermarkt ist ___ der Bank.",answers:["neben","durch","ohne"],correct:0},{text:"Warum kommst du nicht? – ___ ich krank bin.",answers:["Denn","Weil","Aber"],correct:1},{text:"Meine Wohnung ist größer ___ deine.",answers:["wie","als","von"],correct:1}
+      ]},
+      {level:"A2.1",questions:[
+        {text:"Welcher Satz ist richtig?",answers:["Letztes Wochenende habe ich meine Freunde besucht und wir sind zusammen Pizza gegessen.","Letztes Wochenende habe ich meine Freunde besucht und haben zusammen Pizza gegessen.","Letztes Wochenende habe ich meine Freunde besucht und wir haben zusammen Pizza gegessen."],correct:2},
+        {text:"Wir sitzen heute Abend auf ______ Balkon.",answers:["unser","unseren","unserem"],correct:2},
+        {text:"Deine Freundin möchte mehr Sport machen, hat aber keine Motivation. Was passt?",answers:["Du musst jeden Tag trainieren.","Du könntest mit einer Freundin zusammen Sport machen.","Du solltest gestern Sport machen."],correct:1},
+        {text:"Ich war sehr müde. ______ bin ich schon um neun Uhr ins Bett gegangen.",answers:["Weil","Deshalb","Dass"],correct:1},
+        {text:"Du stellst den Laptop auf den Tisch. Welcher Satz beschreibt die Situation danach?",answers:["Der Laptop steht auf den Tisch.","Der Laptop steht auf dem Tisch.","Der Laptop liegt auf den Tisch."],correct:1},
+        {text:"Welcher Satz ist richtig?",answers:["Ich glaube, morgen kommt er nicht.","Ich glaube, dass morgen kommt er nicht.","Ich glaube, dass er morgen nicht kommt."],correct:2},
+        {text:"Welche Frage ist richtig?",answers:["Weißt du, wann beginnt das Meeting?","Weißt du, wann das Meeting beginnt?","Weißt du, wann beginnt das Meeting."],correct:1},
+        {text:"Dein Kollege fragt: „Kannst du morgen die Präsentation übernehmen?“ Du möchtest höflich ablehnen.",answers:["Nein.","Keine Lust.","Das geht leider nicht. Ich habe morgen schon einen wichtigen Termin."],correct:2},
+        {text:"Welcher Satz klingt natürlich?",answers:["Ich möchte jetzt lieber Urlaub.","Ich will jetzt Ferien.","Ich hätte jetzt gern zwei Wochen Urlaub."],correct:2},
+        {text:"A: Warum arbeitest du so gern hier? Welche Antwort passt?",answers:["Deshalb die Kollegen nett sind.","Weil ich habe nette Kollegen.","Weil die Kollegen sehr nett sind und die Arbeit Spaß macht."],correct:2}
+      ]},
+      {level:"A2.2",questions:[
+        {text:"Welcher Satz ist richtig?",answers:["Ich schreibe meinen Chef eine E-Mail.","Ich schreibe meinem Chef eine E-Mail.","Ich schreibe meinem Chef einen E-Mail."],correct:1},
+        {text:"Welcher Satz ist richtig?",answers:["Ich habe einen neu Chef.","Ich habe einen neues Chef.","Ich habe einen neuen Chef."],correct:2},
+        {text:"Ich freue mich ______ meinen Urlaub.",answers:["über","für","auf"],correct:2},
+        {text:"Du interessierst dich für Sport. Welche Frage passt?",answers:["Worüber interessierst du dich?","Wofür interessierst du dich?","Woran interessierst du dich?"],correct:1},
+        {text:"Welcher Satz ist richtig?",answers:["Es regnet. Weil gehe ich spazieren.","Es regnet. Deshalb gehe ich spazieren.","Es regnet. Trotzdem gehe ich spazieren."],correct:2},
+        {text:"Welcher Satz ist richtig?",answers:["Früher ich konnte sehr gut schwimmen.","Früher habe ich gut schwimmen gekonnt.","Früher konnte ich sehr gut schwimmen."],correct:2},
+        {text:"Welcher Satz ist richtig?",answers:["Ich kenne den Student.","Ich kenne den Studenten.","Ich kenne den Studentes."],correct:1},
+        {text:"Welcher Satz ist richtig?",answers:["Das ist die Frau, der in Berlin wohnt.","Das ist die Frau, das in Berlin wohnt.","Das ist die Frau, die in Berlin wohnt."],correct:2},
+        {text:"Welcher Satz ist richtig?",answers:["Die Tür macht geschlossen.","Die Tür wird schließen.","Die Tür wird geschlossen."],correct:2},
+        {text:"Welcher Satz ist richtig?",answers:["Gestern kommte mein Bruder zu Besuch.","Gestern hat mein Bruder gekommen.","Gestern kam mein Bruder zu Besuch."],correct:2}
+      ]}
     ];
-
-    const resultData = {
-      "Anfänger / A1.1": {
-        course: "Deutsch A1.1",
-        descriptionDe:
-          "Du stehst am Anfang deiner Deutschreise. Im Kurs A1.1 lernst du die wichtigsten Grundlagen, einfache Sätze und alltägliche Ausdrücke.",
-        descriptionUa:
-          "Ви перебуваєте на початку вивчення німецької. На курсі A1.1 ви опануєте основи, прості речення та найважливіші повсякденні фрази."
-      },
-      "A1.1": {
-        course: "Deutsch A1.2",
-        descriptionDe:
-          "Du verstehst bereits einfache Wörter und Sätze und kannst grundlegende Informationen über dich selbst geben.",
-        descriptionUa:
-          "Ви вже розумієте прості слова та речення і можете повідомити базову інформацію про себе."
-      },
-      "A1.2": {
-        course: "Deutsch A2.1",
-        descriptionDe:
-          "Du kannst über Alltagsthemen sprechen, einfache Gespräche führen und kurze Texte verstehen.",
-        descriptionUa:
-          "Ви можете спілкуватися на повсякденні теми, підтримувати просту розмову та розуміти короткі тексти."
-      }
+    const resultData={
+      "Anfänger / A1.1":{course:"DeutschLab A1.1",descriptionDe:"Du stehst am Anfang deiner Deutschreise. Im Kurs A1.1 lernst du die wichtigsten Grundlagen, einfache Sätze und alltägliche Ausdrücke.",descriptionUa:"Ви перебуваєте на початку вивчення німецької. На курсі A1.1 ви опануєте основи, прості речення та найважливіші повсякденні фрази."},
+      "A1.1":{course:"DeutschLab A1.2",descriptionDe:"Du verstehst bereits einfache Wörter und Sätze und kannst grundlegende Informationen über dich selbst geben.",descriptionUa:"Ви вже розумієте прості слова та речення і можете повідомити базову інформацію про себе."},
+      "A1.2":{course:"DeutschLab A2.1",descriptionDe:"Du kannst über Alltagsthemen sprechen, einfache Gespräche führen und kurze Texte verstehen.",descriptionUa:"Ви можете спілкуватися на повсякденні теми, підтримувати просту розмову та розуміти короткі тексти."},
+      "A2.1":{course:"DeutschLab A2.2",descriptionDe:"Du kannst dich in vielen Alltagssituationen verständigen, über Erfahrungen sprechen und einfache Zusammenhänge erklären.",descriptionUa:"Ви можете спілкуватися в багатьох повсякденних ситуаціях, розповідати про свій досвід і пояснювати прості взаємозв’язки."},
+      "A2.2":{course:"DeutschLab B1.1",descriptionDe:"Du beherrschst die wichtigsten Inhalte der Niveaustufe A2 und bist bereit, deine Deutschkenntnisse auf B1 weiterzuentwickeln.",descriptionUa:"Ви опанували основний матеріал рівня A2 і готові продовжити вивчення німецької на рівні B1."}
     };
-
-    const startScreen = document.getElementById("start-screen");
-    const testScreen = document.getElementById("test-screen");
-    const resultScreen = document.getElementById("result-screen");
-    const studentForm = document.getElementById("student-form");
-    const levelLabel = document.getElementById("level-label");
-    const questionCount = document.getElementById("question-count");
-    const progressBar = document.getElementById("progress-bar");
-    const questionText = document.getElementById("question-text");
-    const answersContainer = document.getElementById("answers");
-    const nextButton = document.getElementById("next-button");
-    const resultLevel = document.getElementById("result-level");
-    const recommendedCourse = document.getElementById("recommended-course");
-    const descriptionDe = document.getElementById("level-description-de");
-    const descriptionUa = document.getElementById("level-description-ua");
-    const sendStatus = document.getElementById("send-status");
-
-    let student = { name: "", email: "" };
-    let blockIndex = 0;
-    let questionIndex = 0;
-    let selectedAnswer = null;
-    let currentBlockScore = 0;
-
-    const scores = { "A1.1": 0, "A1.2": 0 };
-    const answerLog = [];
-
-    studentForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      student.name = document.getElementById("student-name").value.trim();
-      student.email = document.getElementById("student-email").value.trim();
-
-      if (!student.name || !student.email) return;
-
-      startScreen.classList.add("hidden");
-      testScreen.classList.remove("hidden");
-      showQuestion();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    nextButton.addEventListener("click", () => {
-      if (selectedAnswer === null) return;
-
-      const block = questionBlocks[blockIndex];
-      const question = block.questions[questionIndex];
-      const isCorrect = selectedAnswer === question.correct;
-
-      if (isCorrect) {
-        currentBlockScore++;
-      }
-
-      answerLog.push({
-        level: block.level,
-        question: question.text,
-        selectedAnswer: question.answers[selectedAnswer],
-        correctAnswer: question.answers[question.correct],
-        isCorrect
-      });
-
-      selectedAnswer = null;
-      nextButton.disabled = true;
-      questionIndex++;
-
-      if (questionIndex < block.questions.length) {
-        showQuestion();
-        return;
-      }
-
-      finishBlock();
-    });
-
-    function showQuestion() {
-      const block = questionBlocks[blockIndex];
-      const question = block.questions[questionIndex];
-
-      levelLabel.textContent = block.level;
-      questionCount.textContent =
-        `${questionIndex + 1} / ${block.questions.length}`;
-
-      progressBar.style.width =
-        `${((questionIndex + 1) / block.questions.length) * 100}%`;
-
-      questionText.textContent = question.text;
-      answersContainer.innerHTML = "";
-
-      question.answers.forEach((answer, index) => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "answer";
-        button.textContent = answer;
-
-        button.addEventListener("click", () => {
-          document.querySelectorAll(".answer").forEach(item => {
-            item.classList.remove("selected");
-          });
-
-          button.classList.add("selected");
-          selectedAnswer = index;
-          nextButton.disabled = false;
-        });
-
-        answersContainer.appendChild(button);
-      });
-
-      const isLastQuestion =
-        blockIndex === questionBlocks.length - 1 &&
-        questionIndex === block.questions.length - 1;
-
-      nextButton.textContent = isLastQuestion
-        ? "Test abschließen / Завершити тест"
-        : "Weiter / Далі";
-    }
-
-    function finishBlock() {
-      const block = questionBlocks[blockIndex];
-      scores[block.level] = currentBlockScore;
-
-      if (block.level === "A1.1" && currentBlockScore < PASS_SCORE) {
-        finishTest("Anfänger / A1.1");
-        return;
-      }
-
-      if (block.level === "A1.1") {
-        blockIndex = 1;
-        questionIndex = 0;
-        currentBlockScore = 0;
-        showQuestion();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-      }
-
-      const finalLevel =
-        currentBlockScore >= PASS_SCORE ? "A1.2" : "A1.1";
-
-      finishTest(finalLevel);
-    }
-
-    async function finishTest(level) {
-      const result = resultData[level];
-
-      resultLevel.textContent = level;
-      recommendedCourse.textContent = result.course;
-      descriptionDe.textContent = "🇩🇪 " + result.descriptionDe;
-      descriptionUa.textContent = "🇺🇦 " + result.descriptionUa;
-
-      testScreen.classList.add("hidden");
-      resultScreen.classList.remove("hidden");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-
-      const payload = {
-        timestamp: new Date().toISOString(),
-        name: student.name,
-        email: student.email,
-        a11Score: scores["A1.1"],
-        a12Score: scores["A1.2"],
-        totalScore: scores["A1.1"] + scores["A1.2"],
-        level,
-        recommendedCourse: result.course,
-        answers: answerLog
-      };
-
-      await sendResult(payload);
-    }
-
-    async function sendResult(payload) {
-      sendStatus.textContent = "Ergebnis wird gespeichert …";
-
-      try {
-        await fetch(APPS_SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "text/plain;charset=utf-8"
-          },
-          body: JSON.stringify(payload)
-        });
-
-        sendStatus.textContent =
-          "✓ Dein Ergebnis wurde erfolgreich übermittelt.";
-        sendStatus.classList.remove("error");
-      } catch (error) {
-        console.error(error);
-        sendStatus.textContent =
-          "Das Ergebnis konnte nicht gesendet werden. Bitte versuche es später erneut.";
-        sendStatus.classList.add("error");
-      }
-    }
+    const startScreen=document.getElementById("start-screen"),testScreen=document.getElementById("test-screen"),resultScreen=document.getElementById("result-screen"),studentForm=document.getElementById("student-form"),levelLabel=document.getElementById("level-label"),questionCount=document.getElementById("question-count"),progressBar=document.getElementById("progress-bar"),questionText=document.getElementById("question-text"),answersContainer=document.getElementById("answers"),nextButton=document.getElementById("next-button"),resultLevel=document.getElementById("result-level"),recommendedCourse=document.getElementById("recommended-course"),descriptionDe=document.getElementById("level-description-de"),descriptionUa=document.getElementById("level-description-ua"),sendStatus=document.getElementById("send-status");
+    let student={name:"",email:""},blockIndex=0,questionIndex=0,selectedAnswer=null,currentBlockScore=0;
+    const scores={"A1.1":0,"A1.2":0,"A2.1":0,"A2.2":0},answerLog=[];
+    studentForm.addEventListener("submit",event=>{event.preventDefault();student.name=document.getElementById("student-name").value.trim();student.email=document.getElementById("student-email").value.trim();if(!student.name||!student.email)return;startScreen.classList.add("hidden");testScreen.classList.remove("hidden");showQuestion();window.scrollTo({top:0,behavior:"smooth"})});
+    nextButton.addEventListener("click",()=>{if(selectedAnswer===null)return;const block=questionBlocks[blockIndex],question=block.questions[questionIndex],isCorrect=selectedAnswer===question.correct;if(isCorrect)currentBlockScore++;answerLog.push({level:block.level,question:question.text,selectedAnswer:question.answers[selectedAnswer],correctAnswer:question.answers[question.correct],isCorrect});selectedAnswer=null;nextButton.disabled=true;questionIndex++;if(questionIndex<block.questions.length){showQuestion();return}finishBlock()});
+    function showQuestion(){const block=questionBlocks[blockIndex],question=block.questions[questionIndex];levelLabel.textContent=block.level;questionCount.textContent=`${questionIndex+1} / ${block.questions.length}`;progressBar.style.width=`${((questionIndex+1)/block.questions.length)*100}%`;questionText.textContent=question.text;answersContainer.innerHTML="";question.answers.forEach((answer,index)=>{const button=document.createElement("button");button.type="button";button.className="answer";button.textContent=answer;button.addEventListener("click",()=>{document.querySelectorAll(".answer").forEach(item=>item.classList.remove("selected"));button.classList.add("selected");selectedAnswer=index;nextButton.disabled=false});answersContainer.appendChild(button)});const isLastQuestion=blockIndex===questionBlocks.length-1&&questionIndex===block.questions.length-1;nextButton.textContent=isLastQuestion?"Test abschließen / Завершити тест":"Weiter / Далі"}
+    function finishBlock(){const block=questionBlocks[blockIndex];scores[block.level]=currentBlockScore;if(block.level==="A1.1"&&currentBlockScore<PASS_SCORE){finishTest("Anfänger / A1.1");return}if(block.level==="A1.2"&&currentBlockScore<PASS_SCORE){finishTest("A1.1");return}if(block.level==="A2.1"&&currentBlockScore<PASS_SCORE){finishTest("A1.2");return}if(block.level==="A2.2"){finishTest(currentBlockScore>=PASS_SCORE?"A2.2":"A2.1");return}blockIndex++;questionIndex=0;currentBlockScore=0;showQuestion();window.scrollTo({top:0,behavior:"smooth"})}
+    async function finishTest(level){const result=resultData[level];resultLevel.textContent=level;recommendedCourse.textContent=result.course;descriptionDe.textContent="🇩🇪 "+result.descriptionDe;descriptionUa.textContent="🇺🇦 "+result.descriptionUa;testScreen.classList.add("hidden");resultScreen.classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});const payload={timestamp:new Date().toISOString(),name:student.name,email:student.email,a11Score:scores["A1.1"],a12Score:scores["A1.2"],a21Score:scores["A2.1"],a22Score:scores["A2.2"],totalScore:scores["A1.1"]+scores["A1.2"]+scores["A2.1"]+scores["A2.2"],level,recommendedCourse:result.course,answers:answerLog};await sendResult(payload)}
+    async function sendResult(payload){sendStatus.textContent="Ergebnis wird gespeichert …";try{await fetch(APPS_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});sendStatus.textContent="✓ Dein Ergebnis wurde erfolgreich übermittelt.";sendStatus.classList.remove("error")}catch(error){console.error(error);sendStatus.textContent="Das Ergebnis konnte nicht gesendet werden. Bitte versuche es später erneut.";sendStatus.classList.add("error")}}
   </script>
 </body>
 </html>
