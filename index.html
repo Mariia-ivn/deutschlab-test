@@ -57,52 +57,844 @@
     const PASS_SCORE = 8;
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbylTW8syErB012PNMyga6R1vWk9JWDy2KJEh-5TRCNLeLPemtGENRlVJEcFyf5JHHCsog/exec";
     const questionBlocks = [
-      {level:"A1.1",questions:[
-        {text:"Wie ___ du?",answers:["heiße","heißt","heißen"],correct:1},{text:"Ich ___ Maria.",answers:["bin","bist","ist"],correct:0},{text:"Woher kommst du? – Ich komme ___ der Ukraine.",answers:["aus","in","bei"],correct:0},{text:"Das ist ___ Bruder.",answers:["mein","meine","meinen"],correct:0},{text:"Wir ___ Deutsch.",answers:["lernt","lernen","lerne"],correct:1},{text:"Wie alt bist du? – Ich bin 23 ___.",answers:["Jahre","Jahren","Jahr"],correct:0},{text:"___ du Kaffee?",answers:["Trinkst","Trinkt","Trinken"],correct:0},{text:"Das sind Anna und Max. ___ wohnen in Berlin.",answers:["Sie","Ihr","Wir"],correct:0},{text:"Ich habe ___ Auto.",answers:["kein","keine","keinen"],correct:0},{text:"Heute ist Montag. Morgen ist ___.",answers:["Sonntag","Dienstag","Mittwoch"],correct:1}
-      ]},
-      {level:"A1.2",questions:[
-        {text:"Ich stehe jeden Tag um 7 Uhr ___.",answers:["an","auf","ein"],correct:1},{text:"Kannst du mir bitte ___?",answers:["helfen","hilfst","geholfen"],correct:0},{text:"Am Wochenende ___ ich meine Freunde besucht.",answers:["bin","habe","werde"],correct:1},{text:"Ich fahre ___ dem Bus zur Arbeit.",answers:["mit","bei","für"],correct:0},{text:"Wir treffen uns ___ Freitag.",answers:["im","am","um"],correct:1},{text:"Das Geschenk ist ___ meine Mutter.",answers:["von","für","aus"],correct:1},{text:"Ich muss heute länger ___.",answers:["arbeite","arbeiten","gearbeitet"],correct:1},{text:"Der Supermarkt ist ___ der Bank.",answers:["neben","durch","ohne"],correct:0},{text:"Warum kommst du nicht? – ___ ich krank bin.",answers:["Denn","Weil","Aber"],correct:1},{text:"Meine Wohnung ist größer ___ deine.",answers:["wie","als","von"],correct:1}
-      ]},
-      {level:"A2.1",questions:[
-        {text:"Welcher Satz ist richtig?",answers:["Letztes Wochenende habe ich meine Freunde besucht und wir sind zusammen Pizza gegessen.","Letztes Wochenende habe ich meine Freunde besucht und haben zusammen Pizza gegessen.","Letztes Wochenende habe ich meine Freunde besucht und wir haben zusammen Pizza gegessen."],correct:2},
-        {text:"Wir sitzen heute Abend auf ______ Balkon.",answers:["unser","unseren","unserem"],correct:2},
-        {text:"Deine Freundin möchte mehr Sport machen, hat aber keine Motivation. Was passt?",answers:["Du musst jeden Tag trainieren.","Du könntest mit einer Freundin zusammen Sport machen.","Du solltest gestern Sport machen."],correct:1},
-        {text:"Ich war sehr müde. ______ bin ich schon um neun Uhr ins Bett gegangen.",answers:["Weil","Deshalb","Dass"],correct:1},
-        {text:"Du stellst den Laptop auf den Tisch. Welcher Satz beschreibt die Situation danach?",answers:["Der Laptop steht auf den Tisch.","Der Laptop steht auf dem Tisch.","Der Laptop liegt auf den Tisch."],correct:1},
-        {text:"Welcher Satz ist richtig?",answers:["Ich glaube, morgen kommt er nicht.","Ich glaube, dass morgen kommt er nicht.","Ich glaube, dass er morgen nicht kommt."],correct:2},
-        {text:"Welche Frage ist richtig?",answers:["Weißt du, wann beginnt das Meeting?","Weißt du, wann das Meeting beginnt?","Weißt du, wann beginnt das Meeting."],correct:1},
-        {text:"Dein Kollege fragt: „Kannst du morgen die Präsentation übernehmen?“ Du möchtest höflich ablehnen.",answers:["Nein.","Keine Lust.","Das geht leider nicht. Ich habe morgen schon einen wichtigen Termin."],correct:2},
-        {text:"Welcher Satz klingt natürlich?",answers:["Ich möchte jetzt lieber Urlaub.","Ich will jetzt Ferien.","Ich hätte jetzt gern zwei Wochen Urlaub."],correct:2},
-        {text:"A: Warum arbeitest du so gern hier? Welche Antwort passt?",answers:["Deshalb die Kollegen nett sind.","Weil ich habe nette Kollegen.","Weil die Kollegen sehr nett sind und die Arbeit Spaß macht."],correct:2}
-      ]},
-      {level:"A2.2",questions:[
-        {text:"Welcher Satz ist richtig?",answers:["Ich schreibe meinen Chef eine E-Mail.","Ich schreibe meinem Chef eine E-Mail.","Ich schreibe meinem Chef einen E-Mail."],correct:1},
-        {text:"Welcher Satz ist richtig?",answers:["Ich habe einen neu Chef.","Ich habe einen neues Chef.","Ich habe einen neuen Chef."],correct:2},
-        {text:"Ich freue mich ______ meinen Urlaub.",answers:["über","für","auf"],correct:2},
-        {text:"Du interessierst dich für Sport. Welche Frage passt?",answers:["Worüber interessierst du dich?","Wofür interessierst du dich?","Woran interessierst du dich?"],correct:1},
-        {text:"Welcher Satz ist richtig?",answers:["Es regnet. Weil gehe ich spazieren.","Es regnet. Deshalb gehe ich spazieren.","Es regnet. Trotzdem gehe ich spazieren."],correct:2},
-        {text:"Welcher Satz ist richtig?",answers:["Früher ich konnte sehr gut schwimmen.","Früher habe ich gut schwimmen gekonnt.","Früher konnte ich sehr gut schwimmen."],correct:2},
-        {text:"Welcher Satz ist richtig?",answers:["Ich kenne den Student.","Ich kenne den Studenten.","Ich kenne den Studentes."],correct:1},
-        {text:"Welcher Satz ist richtig?",answers:["Das ist die Frau, der in Berlin wohnt.","Das ist die Frau, das in Berlin wohnt.","Das ist die Frau, die in Berlin wohnt."],correct:2},
-        {text:"Welcher Satz ist richtig?",answers:["Die Tür macht geschlossen.","Die Tür wird schließen.","Die Tür wird geschlossen."],correct:2},
-        {text:"Welcher Satz ist richtig?",answers:["Gestern kommte mein Bruder zu Besuch.","Gestern hat mein Bruder gekommen.","Gestern kam mein Bruder zu Besuch."],correct:2}
-      ]}
-    ];
-    const resultData={
-      "Anfänger / A1.1":{course:"DeutschLab A1.1",descriptionDe:"Du stehst am Anfang deiner Deutschreise. Im Kurs A1.1 lernst du die wichtigsten Grundlagen, einfache Sätze und alltägliche Ausdrücke.",descriptionUa:"Ви перебуваєте на початку вивчення німецької. На курсі A1.1 ви опануєте основи, прості речення та найважливіші повсякденні фрази."},
-      "A1.1":{course:"DeutschLab A1.2",descriptionDe:"Du verstehst bereits einfache Wörter und Sätze und kannst grundlegende Informationen über dich selbst geben.",descriptionUa:"Ви вже розумієте прості слова та речення і можете повідомити базову інформацію про себе."},
-      "A1.2":{course:"DeutschLab A2.1",descriptionDe:"Du kannst über Alltagsthemen sprechen, einfache Gespräche führen und kurze Texte verstehen.",descriptionUa:"Ви можете спілкуватися на повсякденні теми, підтримувати просту розмову та розуміти короткі тексти."},
-      "A2.1":{course:"DeutschLab A2.2",descriptionDe:"Du kannst dich in vielen Alltagssituationen verständigen, über Erfahrungen sprechen und einfache Zusammenhänge erklären.",descriptionUa:"Ви можете спілкуватися в багатьох повсякденних ситуаціях, розповідати про свій досвід і пояснювати прості взаємозв’язки."},
-      "A2.2":{course:"DeutschLab B1.1",descriptionDe:"Du beherrschst die wichtigsten Inhalte der Niveaustufe A2 und bist bereit, deine Deutschkenntnisse auf B1 weiterzuentwickeln.",descriptionUa:"Ви опанували основний матеріал рівня A2 і готові продовжити вивчення німецької на рівні B1."}
-    };
+      {
+            "level": "A1.1",
+            "questions": [
+                  {
+                        "text": "Wie ___ du?",
+                        "answers": [
+                              "heiße",
+                              "heißt",
+                              "heißen"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Ich ___ Maria.",
+                        "answers": [
+                              "bin",
+                              "bist",
+                              "ist"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Woher kommst du? – Ich komme ___ der Ukraine.",
+                        "answers": [
+                              "aus",
+                              "in",
+                              "bei"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Das ist ___ Bruder.",
+                        "answers": [
+                              "mein",
+                              "meine",
+                              "meinen"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Wir ___ Deutsch.",
+                        "answers": [
+                              "lernt",
+                              "lernen",
+                              "lerne"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Wie alt bist du? – Ich bin 23 ___.",
+                        "answers": [
+                              "Jahre",
+                              "Jahren",
+                              "Jahr"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "___ du Kaffee?",
+                        "answers": [
+                              "Trinkst",
+                              "Trinkt",
+                              "Trinken"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Das sind Anna und Max. ___ wohnen in Berlin.",
+                        "answers": [
+                              "Sie",
+                              "Ihr",
+                              "Wir"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Ich habe ___ Auto.",
+                        "answers": [
+                              "kein",
+                              "keine",
+                              "keinen"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Heute ist Montag. Morgen ist ___.",
+                        "answers": [
+                              "Sonntag",
+                              "Dienstag",
+                              "Mittwoch"
+                        ],
+                        "correct": 1
+                  }
+            ]
+      },
+      {
+            "level": "A1.2",
+            "questions": [
+                  {
+                        "text": "Ich stehe jeden Tag um 7 Uhr ___.",
+                        "answers": [
+                              "an",
+                              "auf",
+                              "ein"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Kannst du mir bitte ___?",
+                        "answers": [
+                              "helfen",
+                              "hilfst",
+                              "geholfen"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Am Wochenende ___ ich meine Freunde besucht.",
+                        "answers": [
+                              "bin",
+                              "habe",
+                              "werde"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Ich fahre ___ dem Bus zur Arbeit.",
+                        "answers": [
+                              "mit",
+                              "bei",
+                              "für"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Wir treffen uns ___ Freitag.",
+                        "answers": [
+                              "im",
+                              "am",
+                              "um"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Das Geschenk ist ___ meine Mutter.",
+                        "answers": [
+                              "von",
+                              "für",
+                              "aus"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Ich muss heute länger ___.",
+                        "answers": [
+                              "arbeite",
+                              "arbeiten",
+                              "gearbeitet"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Der Supermarkt ist ___ der Bank.",
+                        "answers": [
+                              "neben",
+                              "durch",
+                              "ohne"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Warum kommst du nicht? – ___ ich krank bin.",
+                        "answers": [
+                              "Denn",
+                              "Weil",
+                              "Aber"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Meine Wohnung ist größer ___ deine.",
+                        "answers": [
+                              "wie",
+                              "als",
+                              "von"
+                        ],
+                        "correct": 1
+                  }
+            ]
+      },
+      {
+            "level": "A2.1",
+            "questions": [
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Letztes Wochenende habe ich meine Freunde besucht und wir sind zusammen Pizza gegessen.",
+                              "Letztes Wochenende habe ich meine Freunde besucht und haben zusammen Pizza gegessen.",
+                              "Letztes Wochenende habe ich meine Freunde besucht und wir haben zusammen Pizza gegessen."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Wir sitzen heute Abend auf ______ Balkon.",
+                        "answers": [
+                              "unser",
+                              "unseren",
+                              "unserem"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Deine Freundin möchte mehr Sport machen, hat aber keine Motivation. Was passt?",
+                        "answers": [
+                              "Du musst jeden Tag trainieren.",
+                              "Du könntest mit einer Freundin zusammen Sport machen.",
+                              "Du solltest gestern Sport machen."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Ich war sehr müde. ______ bin ich schon um neun Uhr ins Bett gegangen.",
+                        "answers": [
+                              "Weil",
+                              "Deshalb",
+                              "Dass"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Du stellst den Laptop auf den Tisch. Welcher Satz beschreibt die Situation danach?",
+                        "answers": [
+                              "Der Laptop steht auf den Tisch.",
+                              "Der Laptop steht auf dem Tisch.",
+                              "Der Laptop liegt auf den Tisch."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Ich glaube, morgen kommt er nicht.",
+                              "Ich glaube, dass morgen kommt er nicht.",
+                              "Ich glaube, dass er morgen nicht kommt."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welche Frage ist richtig?",
+                        "answers": [
+                              "Weißt du, wann beginnt das Meeting?",
+                              "Weißt du, wann das Meeting beginnt?",
+                              "Weißt du, wann beginnt das Meeting."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Dein Kollege fragt: „Kannst du morgen die Präsentation übernehmen?“ Du möchtest höflich ablehnen.",
+                        "answers": [
+                              "Nein.",
+                              "Keine Lust.",
+                              "Das geht leider nicht. Ich habe morgen schon einen wichtigen Termin."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz klingt natürlich?",
+                        "answers": [
+                              "Ich möchte jetzt lieber Urlaub.",
+                              "Ich will jetzt Ferien.",
+                              "Ich hätte jetzt gern zwei Wochen Urlaub."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "A: Warum arbeitest du so gern hier? Welche Antwort passt?",
+                        "answers": [
+                              "Deshalb die Kollegen nett sind.",
+                              "Weil ich habe nette Kollegen.",
+                              "Weil die Kollegen sehr nett sind und die Arbeit Spaß macht."
+                        ],
+                        "correct": 2
+                  }
+            ]
+      },
+      {
+            "level": "A2.2",
+            "questions": [
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Ich schreibe meinen Chef eine E-Mail.",
+                              "Ich schreibe meinem Chef eine E-Mail.",
+                              "Ich schreibe meinem Chef einen E-Mail."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Ich habe einen neu Chef.",
+                              "Ich habe einen neues Chef.",
+                              "Ich habe einen neuen Chef."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Ich freue mich ______ meinen Urlaub.",
+                        "answers": [
+                              "über",
+                              "für",
+                              "auf"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Du interessierst dich für Sport. Welche Frage passt?",
+                        "answers": [
+                              "Worüber interessierst du dich?",
+                              "Wofür interessierst du dich?",
+                              "Woran interessierst du dich?"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Es regnet. Weil gehe ich spazieren.",
+                              "Es regnet. Deshalb gehe ich spazieren.",
+                              "Es regnet. Trotzdem gehe ich spazieren."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Früher ich konnte sehr gut schwimmen.",
+                              "Früher habe ich gut schwimmen gekonnt.",
+                              "Früher konnte ich sehr gut schwimmen."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Ich kenne den Student.",
+                              "Ich kenne den Studenten.",
+                              "Ich kenne den Studentes."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Das ist die Frau, der in Berlin wohnt.",
+                              "Das ist die Frau, das in Berlin wohnt.",
+                              "Das ist die Frau, die in Berlin wohnt."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Die Tür macht geschlossen.",
+                              "Die Tür wird schließen.",
+                              "Die Tür wird geschlossen."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Gestern kommte mein Bruder zu Besuch.",
+                              "Gestern hat mein Bruder gekommen.",
+                              "Gestern kam mein Bruder zu Besuch."
+                        ],
+                        "correct": 2
+                  }
+            ]
+      },
+      {
+            "level": "B1.1",
+            "questions": [
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Berlin ist größer wie Leipzig.",
+                              "Berlin ist größer als Leipzig.",
+                              "Berlin ist am größten als Leipzig."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "______ ich klein war, wollte ich Tierärztin werden.",
+                        "answers": [
+                              "Wenn",
+                              "Als",
+                              "Ob"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Ich habe morgen eine Prüfung. ______ lerne ich heute Abend.",
+                        "answers": [
+                              "Weil",
+                              "Deshalb",
+                              "Obwohl"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Ich spare Geld, um eine Reise machen.",
+                              "Ich spare Geld, damit eine Reise zu machen.",
+                              "Ich spare Geld, um eine Reise zu machen."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Wenn ich mehr Freizeit hätte, ______ ich öfter reisen.",
+                        "answers": [
+                              "reise",
+                              "würde",
+                              "werde"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Obwohl es regnet, aber wir gehen spazieren.",
+                              "Obwohl es regnet, gehen wir spazieren.",
+                              "Obwohl regnet es, gehen wir spazieren."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "______ des schlechten Wetters bleiben wir heute zu Hause.",
+                        "answers": [
+                              "Trotz",
+                              "Wegen",
+                              "Seit"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Ich hoffe, bald eine neue Arbeit finden.",
+                              "Ich hoffe, bald eine neue Arbeit zu finden.",
+                              "Ich hoffe, zu bald eine neue Arbeit finden."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "______ ich zur Arbeit gehe, trinke ich immer einen Kaffee.",
+                        "answers": [
+                              "Bis",
+                              "Während",
+                              "Bevor"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Das ist die Kollegin, den ich gestern getroffen habe.",
+                              "Das ist die Kollegin, dem ich gestern geholfen habe.",
+                              "Das ist die Kollegin, mit der ich gestern gesprochen habe."
+                        ],
+                        "correct": 2
+                  }
+            ]
+      },
+      {
+            "level": "B1.2",
+            "questions": [
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Ich lasse mein Fahrrad morgen reparieren.",
+                              "Ich lasse morgen mein Fahrrad zu reparieren.",
+                              "Ich lasse mein Fahrrad morgen repariert."
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Maria spricht ______ Deutsch, ______ Englisch fließend.",
+                        "answers": [
+                              "weder … noch",
+                              "entweder … oder",
+                              "sowohl … als auch"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Alles, das ich gehört habe, war interessant.",
+                              "Alles, was ich gehört habe, war interessant.",
+                              "Alles, wer ich gehört habe, war interessant."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Als ich im Kino ankam, ______ der Film schon begonnen.",
+                        "answers": [
+                              "hat",
+                              "war",
+                              "hatte"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Je mehr ich lerne, desto besser werden meine Noten.",
+                              "Je mehr ich lerne, dann besser werden meine Noten.",
+                              "Je mehr ich lerne, weil besser werden meine Noten."
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Er hat Deutsch gelernt, ______ er jeden Tag Podcasts gehört hat.",
+                        "answers": [
+                              "nachdem",
+                              "obwohl",
+                              "indem"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Das Museum wurde im Jahr 1995 eröffnet.",
+                              "Das Museum hat eröffnet worden.",
+                              "Das Museum ist eröffnen worden."
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Er ging nach Hause, ______ sich zu verabschieden.",
+                        "answers": [
+                              "anstatt",
+                              "ohne dass",
+                              "ohne"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Morgen ich werde arbeiten.",
+                              "Morgen arbeite ich werden.",
+                              "Morgen werde ich arbeiten."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Wenn ich mehr gelernt hätte, ______ ich die Prüfung bestanden.",
+                        "answers": [
+                              "habe",
+                              "würde",
+                              "hätte"
+                        ],
+                        "correct": 2
+                  }
+            ]
+      },
+      {
+            "level": "B2.1",
+            "questions": [
+                  {
+                        "text": "Welcher Satz bedeutet das Gleiche wie: „Das Problem kann leicht gelöst werden.“?",
+                        "answers": [
+                              "Das Problem löst leicht.",
+                              "Das Problem ist leicht zu lösen.",
+                              "Das Problem lässt leicht gelöst."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "______ des Projekts dauerte länger als geplant.",
+                        "answers": [
+                              "Entwickeln",
+                              "Entwickelte",
+                              "Die Entwicklung"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Er hat viel gearbeitet, ______ sein Ziel zu erreichen.",
+                        "answers": [
+                              "sodass",
+                              "um",
+                              "obwohl"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Die sprechene Frau ist unsere Lehrerin.",
+                              "Die sprechende Frau ist unsere Lehrerin.",
+                              "Die gesprochene Frau ist unsere Lehrerin."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Trotz er krank war, ging er arbeiten.",
+                              "Obwohl war er krank, ging er arbeiten.",
+                              "Obwohl er krank war, ging er arbeiten."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Das ist ein Thema, ______ wir oft diskutieren.",
+                        "answers": [
+                              "über das",
+                              "worüber das",
+                              "über dem"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Er scheint krank sein.",
+                              "Er scheint krank zu sein.",
+                              "Er scheint zu krank sein."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welche Formulierung klingt am höflichsten?",
+                        "answers": [
+                              "Das stimmt nicht.",
+                              "Sie haben Unrecht.",
+                              "Ich sehe das etwas anders."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Die Firma möchte ihre Produktion ______.",
+                        "answers": [
+                              "erweitern",
+                              "verlängern",
+                              "verbreiten"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Die Ergebnisse sind ______ besser als erwartet.",
+                        "answers": [
+                              "deutlich",
+                              "laut",
+                              "tief"
+                        ],
+                        "correct": 0
+                  }
+            ]
+      },
+      {
+            "level": "B2.2",
+            "questions": [
+                  {
+                        "text": "Welcher Satz steht im Konjunktiv I?",
+                        "answers": [
+                              "Er sagte, dass er krank ist.",
+                              "Er sagte, er sei krank.",
+                              "Er sagte, er wäre krank."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Das Gebäude wird renoviert worden.",
+                              "Das Gebäude ist renoviert worden.",
+                              "Das Gebäude wurde renovieren."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "______ der neuen Regel führte zu vielen Diskussionen.",
+                        "answers": [
+                              "Einführen",
+                              "Die Einführung",
+                              "Eingeführt"
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "Die Aufgabe war schwierig, ______ haben wir sie geschafft.",
+                        "answers": [
+                              "obwohl",
+                              "denn",
+                              "trotzdem"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Welcher Satz ist richtig?",
+                        "answers": [
+                              "Der gestern angekommen Gast wartet draußen.",
+                              "Der gestern angekommene Gast wartet draußen.",
+                              "Der gestern ankommene Gast hat schon gestern eingecheckt."
+                        ],
+                        "correct": 1
+                  },
+                  {
+                        "text": "In einer Diskussion möchtest du höflich widersprechen. Was passt?",
+                        "answers": [
+                              "Das ist falsch.",
+                              "Das stimmt überhaupt nicht.",
+                              "Ich kann Ihren Standpunkt nachvollziehen, allerdings sehe ich das etwas anders."
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Viele Menschen setzen sich ______ den Klimaschutz ein.",
+                        "answers": [
+                              "auf",
+                              "an",
+                              "für"
+                        ],
+                        "correct": 2
+                  },
+                  {
+                        "text": "Er besteht ______ seiner Meinung.",
+                        "answers": [
+                              "auf",
+                              "für",
+                              "über"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Die Entscheidung hatte erhebliche ______.",
+                        "answers": [
+                              "Folgen",
+                              "Möglichkeiten",
+                              "Gedanken"
+                        ],
+                        "correct": 0
+                  },
+                  {
+                        "text": "Welche Formulierung klingt am professionellsten?",
+                        "answers": [
+                              "Das geht nicht.",
+                              "Wir machen das später.",
+                              "Aus organisatorischen Gründen muss der Termin verschoben werden."
+                        ],
+                        "correct": 2
+                  }
+            ]
+      }
+];
+    const resultData = {
+      "Anfänger / A1.1": {
+            "course": "DeutschLab A1.1",
+            "descriptionDe": "Du stehst am Anfang deiner Deutschreise. Im Kurs A1.1 lernst du die wichtigsten Grundlagen, einfache Sätze und alltägliche Ausdrücke.",
+            "descriptionUa": "Ви перебуваєте на початку вивчення німецької. На курсі A1.1 ви опануєте основи, прості речення та найважливіші повсякденні фрази."
+      },
+      "A1.1": {
+            "course": "DeutschLab A1.2",
+            "descriptionDe": "Du verstehst bereits einfache Wörter und Sätze und kannst grundlegende Informationen über dich selbst geben.",
+            "descriptionUa": "Ви вже розумієте прості слова та речення і можете повідомити базову інформацію про себе."
+      },
+      "A1.2": {
+            "course": "DeutschLab A2.1",
+            "descriptionDe": "Du kannst über Alltagsthemen sprechen, einfache Gespräche führen und kurze Texte verstehen.",
+            "descriptionUa": "Ви можете спілкуватися на повсякденні теми, підтримувати просту розмову та розуміти короткі тексти."
+      },
+      "A2.1": {
+            "course": "DeutschLab A2.2",
+            "descriptionDe": "Du kannst dich in vielen Alltagssituationen verständigen, über Erfahrungen sprechen und einfache Zusammenhänge erklären.",
+            "descriptionUa": "Ви можете спілкуватися в багатьох повсякденних ситуаціях, розповідати про свій досвід і пояснювати прості взаємозв’язки."
+      },
+      "A2.2": {
+            "course": "DeutschLab B1.1",
+            "descriptionDe": "Du beherrschst die wichtigsten Inhalte der Niveaustufe A2 und bist bereit, deine Deutschkenntnisse auf B1 weiterzuentwickeln.",
+            "descriptionUa": "Ви опанували основний матеріал рівня A2 і готові продовжити вивчення німецької на рівні B1."
+      },
+      "B1.1": {
+            "course": "DeutschLab B1.2",
+            "descriptionDe": "Du kannst dich zu vertrauten Themen zusammenhängend äußern und die wichtigsten grammatischen Strukturen der ersten B1-Hälfte anwenden.",
+            "descriptionUa": "Ви можете зв’язно висловлюватися на знайомі теми та використовувати основні граматичні структури першої половини рівня B1."
+      },
+      "B1.2": {
+            "course": "DeutschLab B2.1",
+            "descriptionDe": "Du beherrschst die wesentlichen Inhalte der Niveaustufe B1 und kannst dich in vielen Situationen selbstständig verständigen.",
+            "descriptionUa": "Ви опанували основний матеріал рівня B1 і можете самостійно спілкуватися в багатьох ситуаціях."
+      },
+      "B2.1": {
+            "course": "DeutschLab B2.2",
+            "descriptionDe": "Du kannst komplexere Texte und Aussagen verstehen und dich differenziert zu vielen Themen ausdrücken.",
+            "descriptionUa": "Ви можете розуміти складніші тексти й висловлювання та детально висловлюватися на різні теми."
+      },
+      "B2.2": {
+            "course": "DeutschLab C1.1",
+            "descriptionDe": "Du beherrschst die wesentlichen Inhalte der Niveaustufe B2 und bist bereit, deine Kenntnisse auf C1 weiterzuentwickeln.",
+            "descriptionUa": "Ви опанували основний матеріал рівня B2 і готові продовжити навчання на рівні C1."
+      }
+};
+
     const startScreen=document.getElementById("start-screen"),testScreen=document.getElementById("test-screen"),resultScreen=document.getElementById("result-screen"),studentForm=document.getElementById("student-form"),levelLabel=document.getElementById("level-label"),questionCount=document.getElementById("question-count"),progressBar=document.getElementById("progress-bar"),questionText=document.getElementById("question-text"),answersContainer=document.getElementById("answers"),nextButton=document.getElementById("next-button"),resultLevel=document.getElementById("result-level"),recommendedCourse=document.getElementById("recommended-course"),descriptionDe=document.getElementById("level-description-de"),descriptionUa=document.getElementById("level-description-ua"),sendStatus=document.getElementById("send-status");
     let student={name:"",email:""},blockIndex=0,questionIndex=0,selectedAnswer=null,currentBlockScore=0;
-    const scores={"A1.1":0,"A1.2":0,"A2.1":0,"A2.2":0},answerLog=[];
+    const LEVELS = questionBlocks.map(block => block.level);
+    const scores = Object.fromEntries(LEVELS.map(level => [level, null]));
+    const answerLog=[];
+
     studentForm.addEventListener("submit",event=>{event.preventDefault();student.name=document.getElementById("student-name").value.trim();student.email=document.getElementById("student-email").value.trim();if(!student.name||!student.email)return;startScreen.classList.add("hidden");testScreen.classList.remove("hidden");showQuestion();window.scrollTo({top:0,behavior:"smooth"})});
     nextButton.addEventListener("click",()=>{if(selectedAnswer===null)return;const block=questionBlocks[blockIndex],question=block.questions[questionIndex],isCorrect=selectedAnswer===question.correct;if(isCorrect)currentBlockScore++;answerLog.push({level:block.level,question:question.text,selectedAnswer:question.answers[selectedAnswer],correctAnswer:question.answers[question.correct],isCorrect});selectedAnswer=null;nextButton.disabled=true;questionIndex++;if(questionIndex<block.questions.length){showQuestion();return}finishBlock()});
+
     function showQuestion(){const block=questionBlocks[blockIndex],question=block.questions[questionIndex];levelLabel.textContent=block.level;questionCount.textContent=`${questionIndex+1} / ${block.questions.length}`;progressBar.style.width=`${((questionIndex+1)/block.questions.length)*100}%`;questionText.textContent=question.text;answersContainer.innerHTML="";question.answers.forEach((answer,index)=>{const button=document.createElement("button");button.type="button";button.className="answer";button.textContent=answer;button.addEventListener("click",()=>{document.querySelectorAll(".answer").forEach(item=>item.classList.remove("selected"));button.classList.add("selected");selectedAnswer=index;nextButton.disabled=false});answersContainer.appendChild(button)});const isLastQuestion=blockIndex===questionBlocks.length-1&&questionIndex===block.questions.length-1;nextButton.textContent=isLastQuestion?"Test abschließen / Завершити тест":"Weiter / Далі"}
-    function finishBlock(){const block=questionBlocks[blockIndex];scores[block.level]=currentBlockScore;if(block.level==="A1.1"&&currentBlockScore<PASS_SCORE){finishTest("Anfänger / A1.1");return}if(block.level==="A1.2"&&currentBlockScore<PASS_SCORE){finishTest("A1.1");return}if(block.level==="A2.1"&&currentBlockScore<PASS_SCORE){finishTest("A1.2");return}if(block.level==="A2.2"){finishTest(currentBlockScore>=PASS_SCORE?"A2.2":"A2.1");return}blockIndex++;questionIndex=0;currentBlockScore=0;showQuestion();window.scrollTo({top:0,behavior:"smooth"})}
-    async function finishTest(level){const result=resultData[level];resultLevel.textContent=level;recommendedCourse.textContent=result.course;descriptionDe.textContent="🇩🇪 "+result.descriptionDe;descriptionUa.textContent="🇺🇦 "+result.descriptionUa;testScreen.classList.add("hidden");resultScreen.classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});const payload={timestamp:new Date().toISOString(),name:student.name,email:student.email,a11Score:scores["A1.1"],a12Score:scores["A1.2"],a21Score:scores["A2.1"],a22Score:scores["A2.2"],totalScore:scores["A1.1"]+scores["A1.2"]+scores["A2.1"]+scores["A2.2"],level,recommendedCourse:result.course,answers:answerLog};await sendResult(payload)}
+
+    function finishBlock(){
+      const block=questionBlocks[blockIndex];
+      scores[block.level]=currentBlockScore;
+      const failureLevel={"A1.1":"Anfänger / A1.1","A1.2":"A1.1","A2.1":"A1.2","A2.2":"A2.1","B1.1":"A2.2","B1.2":"B1.1","B2.1":"B1.2","B2.2":"B2.1"};
+      if(currentBlockScore<PASS_SCORE){finishTest(failureLevel[block.level]);return}
+      if(blockIndex===questionBlocks.length-1){finishTest("B2.2");return}
+      blockIndex++;questionIndex=0;currentBlockScore=0;showQuestion();window.scrollTo({top:0,behavior:"smooth"})
+    }
+
+    async function finishTest(level){
+      const result=resultData[level];
+      resultLevel.textContent=level;recommendedCourse.textContent=result.course;descriptionDe.textContent="🇩🇪 "+result.descriptionDe;descriptionUa.textContent="🇺🇦 "+result.descriptionUa;testScreen.classList.add("hidden");resultScreen.classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});
+      const attemptedScores=Object.fromEntries(Object.entries(scores).filter(([,score])=>score!==null));
+      const totalScore=Object.values(attemptedScores).reduce((sum,score)=>sum+score,0);
+      const payload={timestamp:new Date().toISOString(),name:student.name,email:student.email,scores,attemptedScores,totalScore,finalLevel:level,level,recommendedCourse:result.course,answers:answerLog};
+      await sendResult(payload)
+    }
+
     async function sendResult(payload){sendStatus.textContent="Ergebnis wird gespeichert …";try{await fetch(APPS_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});sendStatus.textContent="✓ Dein Ergebnis wurde erfolgreich übermittelt.";sendStatus.classList.remove("error")}catch(error){console.error(error);sendStatus.textContent="Das Ergebnis konnte nicht gesendet werden. Bitte versuche es später erneut.";sendStatus.classList.add("error")}}
   </script>
 </body>
